@@ -1,0 +1,9 @@
+import socket,time
+
+s = socket.socket()
+hostname = '' #Server IP/Hostname\n",
+port = 8000 #Server Port\n",
+s.connect((hostname,port)) #Connects to server\n",
+while True:
+  x = input("Enter message: ") #Gets the message to be sent
+  s.send(x.encode()) #Encodes and sends message (x)
