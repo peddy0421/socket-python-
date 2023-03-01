@@ -1,0 +1,18 @@
+import socket,time
+
+listensocket = socket.socket() #Creates an instance of socket\n",
+Port = 8000 #Port to host server on\n",
+maxConnections = 999
+IP = socket.gethostname() #IP address of local machine\n",
+listensocket.bind(('192.168.1.100',Port))
+#Starts server\n",
+listensocket.listen(maxConnections)
+print("Server started at " + IP + " on port " + str(Port))
+#Accepts the incomming connection\n",
+(clientsocket, address) = listensocket.accept()
+print("New connection made!")
+running=True
+while running == True:
+   message = clientsocket.recv(1024).decode() #Gets the incomming message\n",
+   print(message)
+
